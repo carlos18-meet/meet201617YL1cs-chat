@@ -1,6 +1,6 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
 #WRITE YOUR NAME HERE!
-Carlos Hawari
+Carlos 
 #####################################################################################
 #                                   IMPORTS                                         #
 #####################################################################################
@@ -11,6 +11,42 @@ from turtle_chat_client import client #Finally, from the turtle_chat_widgets mod
 from turtle_chat_widgets import Button , TextInput
 #####################################################################################
 #####################################################################################
+class TextBox(textInput):
+
+    def draw_box(self):
+        self.pos= (-200,-200)
+        turtle.hideturtle()
+        self.writer.hideturtle()
+        self.writer=turtle.clone()
+        self.writer.penup()
+        self.writer.goto(self.pos)
+        self.writer.pendown()
+        self.writer.goto(self.width,-200)
+        self.writer.goto(self.width,self.height)
+        self.writer.goto(-200,self.height)
+        self.writer.goto(self.pos)
+
+    def write_msg(self):
+        self.writer.goto(-self.width/2+10+self.pos[0],self.pos[1]-self.height/2+20)
+        self.writer.pendown()
+        self.write.writer(self.get_msg())
+
+
+
+
+
+class sendButton(Button)
+    def __init__(self,view,my_turtle=None,shape=None,pos(o,o),view):
+    def fun(self,x=None,y=None):
+        client.username.send(new_msg)
+
+
+
+
+
+
+       
+        
 
 #####################################################################################
 #                                   TextBox                                         #
@@ -82,12 +118,13 @@ class View:
         ###
         #Store the username and partner_name into the instance.
         ###
-
-        ###
+        username=self.username
+        partner_name=self.partner_name
+        
         #Make a new client object and store it in this instance of View
         #(i.e. self).  The name of the instance should be my_client
         ###
-
+        my_client=self.client
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
@@ -203,3 +240,5 @@ if __name__ == '__main__':
         turtle.ontimer(check,_WAIT_TIME) #Check recursively
     check()
     turtle.mainloop()
+
+
